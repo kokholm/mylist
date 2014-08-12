@@ -1,0 +1,10 @@
+mrt add coffeescript
+mrt add iron-router
+mrt add spin
+mrt add less
+mrt add bootstrap-3
+mrt add handlebar-helpers
+mrt add ionicons 						// http://ionicons.com/
+
+mrt add accounts-ui-bootstrap-3
+mrt add accounts-password

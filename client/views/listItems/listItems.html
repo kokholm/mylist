@@ -1,0 +1,29 @@
+<template name="listItems">
+	<table class="table table-hover table-condensed">
+		<tbody>
+
+		<tr>
+			<td width=1></td>
+			<td><input type="text" class="form-control" name="titleNew"></td>
+			<td width="30px"></td>
+		</tr>
+    {{#each listItem}}
+      {{> item}}
+    {{/each}}
+    </tbody>
+   </table>
+
+</template>
+
+<template name="item">
+	<tr class="{{itemClass}}">
+		<td width=1><button class="btn btn-xs {{doneClass}}" name="done">&nbsp;&nbsp;</button></td>
+		<td name="title">
+			<span id="titleText">{{title}}</span>
+			<input type="text" class="form-control hidden" name="title" id="titleInput" value="{{title}}">
+		</td>
+		<td width=1>
+			<i class="{{beingUpdatedIcon}}"></i>
+		</td>
+	</tr>
+</template>
