@@ -6,3 +6,12 @@
 standard-app-packages
 autopublish
 insecure
+iron-router
+coffeescript
+spin
+less
+bootstrap-3
+handlebar-helpers
+ionicons
+accounts-ui-bootstrap-3
+accounts-password

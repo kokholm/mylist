@@ -4,6 +4,8 @@
     "spin": {},
     "bootstrap-3": {},
     "handlebar-helpers": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "iron-router": {},
+    "ionicons": {}
   }
 }
