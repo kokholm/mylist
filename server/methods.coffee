@@ -10,7 +10,6 @@ Meteor.methods
 			title : txt
 
 	titleUpdate : (id, txt) ->
-		console.log 'Update: ', txt
 		Items.update id,
 			$set:
 				title : txt

@@ -37,10 +37,11 @@ Template.listItems.events
 		$(e.currentTarget).val('')
 
 	'click td[name=title]' : (e) ->
-		# txt = $(e.currentTarget).children('#titleText').text()
-		$(e.currentTarget).children('#titleText').addClass('hidden')
-		$(e.currentTarget).children('#titleInput').removeClass('hidden').focus()
-		Meteor.call 'titleEnterUpdate', @_id
+		txt = $(e.currentTarget).children('#titleText').text()
+		if !Items.findOne(@_id).beingUpdated
+			$(e.currentTarget).children('#titleText').addClass('hidden')
+			$(e.currentTarget).children('#titleInput').val(txt).removeClass('hidden').focus()
+			Meteor.call 'titleEnterUpdate', @_id
 
 	'keyup input[name=title]' : (e) ->		
 		Meteor.call 'titleUpdate', @_id, e.currentTarget.value
