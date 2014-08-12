@@ -1,4 +1,3 @@
-
 Template.listItems.helpers 
 	listItem : ->
  		Items.find()

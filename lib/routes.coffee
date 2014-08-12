@@ -8,9 +8,6 @@ Router.map ->
   @route "listItems",
     path: "/"
 
-  @route "listItems",
-    path: "/add"
-
   return
 
 Router.onBeforeAction "loading"
