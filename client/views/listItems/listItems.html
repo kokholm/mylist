@@ -18,13 +18,13 @@
 </template>
 
 <template name="item">
-	<tr class="{{itemClass}}">
+	<tr class="{{itemClass}}" titleId="{{_id}}">
 		<td width=1><button class="btn btn-xs {{doneClass}}" name="done">&nbsp;&nbsp;</button></td>
 		<td name="title">
 			<span id="titleText">{{title}}</span>
 			<input type="text" class="form-control hidden" name="title" id="titleInput" value="">
 		</td>
-		<td width=1>
+		<td width=1 name="bin" style="cursor:pointer">
 			<i class="{{beingUpdatedIcon}}"></i>
 		</td>
 	</tr>

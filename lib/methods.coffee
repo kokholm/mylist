@@ -6,7 +6,7 @@ Meteor.methods
 				done : not item.done
 
 	titleNew : (txt) ->
-		Items.insert
+		newTitle = Items.insert
 			title : txt
 
 	titleUpdate : (id, txt) ->

@@ -2,6 +2,7 @@ Template.listItems.helpers
 	listItem : ->
  		Items.find()
 
+
 Template.item.helpers 
  	itemClass : ->
  		if Items.findOne(@_id).beingUpdated
@@ -51,6 +52,11 @@ Template.listItems.events
 		$(e.currentTarget).children('#titleText').removeClass('hidden')
 		$(e.currentTarget).children('#titleInput').addClass('hidden')
 		Meteor.call 'titleExitUpdate', @_id
+
+	'click [name=bin]' : (e) ->
+		titleId = $(e.currentTarget).parents('tr').attr('titleId')
+		Items.remove(titleId);
+		console.log 'Delete: ', titleId
 
 	# 'change input[name=title]' : (e) ->
 	# 	Meteor.call 'titleUpdate', @_id, e.currentTarget.value
