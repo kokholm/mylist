@@ -6,12 +6,11 @@
 standard-app-packages
 autopublish
 insecure
-iron-router
+iron:router
 coffeescript
-spin
+sacha:spin@2.0.4
 less
-bootstrap-3
-handlebar-helpers
-ionicons
-accounts-ui-bootstrap-3
+raix:handlebar-helpers@0.1.1
 accounts-password
+mizzao:bootstrap-3
+
