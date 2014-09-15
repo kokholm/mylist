@@ -15,15 +15,15 @@ Template.item.helpers
 
 	doneClass : ->
 		if Items.findOne(@_id).done
-			return 'btn-success'
+			return 'fa-check-square-o '
 		else
-			return 'btn-default'
+			return 'fa-square-o'
 
 	beingUpdatedIcon : ->
 		if Items.findOne(@_id).beingUpdated
-			return 'ion-refreshing'
+			return 'fa fa-spinner fa-spin fa-2x'
 		else
-			return 'ion-trash-b'
+			return 'fa fa-trash'
 
 	beingUpdatedName : ->
 		if Items.findOne(@_id).beingUpdated
@@ -34,35 +34,39 @@ Template.item.helpers
 
 Template.listItems.events
 	'click [name=done]' : (e) ->
-		Meteor.call 'toggleDone', @_id
+		item = Items.findOne @_id
+		Items.update @_id,
+			$set:
+				done : not item.done
 
 	'change input[name=titleNew]' : (e) ->
-		Meteor.call 'titleNew', e.currentTarget.value
+		newTitle = Items.insert
+			title : e.currentTarget.value
 		$(e.currentTarget).val('')
 
 	'click td[name=title]' : (e) ->
 		txt = $(e.currentTarget).children('#titleText').text()
 		$(e.currentTarget).children('#titleText').addClass('hidden')
 		$(e.currentTarget).children('#titleInput').val(txt).removeClass('hidden').focus()
-		Meteor.call 'titleEnterUpdate', @_id
+		Items.update @_id,
+			$set:
+				beingUpdated : true
 
 	'keyup input[name=title]' : (e) ->		
-		Meteor.call 'titleUpdate', @_id, e.currentTarget.value
+		Items.update @_id,
+			$set:
+				title : e.currentTarget.value
 		if e.which == 13
 			$(e.currentTarget).focusout()
 
 	'focusout td[name=title]' : (e) ->		
 		$(e.currentTarget).children('#titleText').removeClass('hidden')
 		$(e.currentTarget).children('#titleInput').addClass('hidden')
-		Meteor.call 'titleExitUpdate', @_id
+		Items.update @_id,
+			$set:
+				beingUpdated : false
 
 	'click [name=bin]' : (e) ->
 		titleId = $(e.currentTarget).parents('tr').attr('titleId')
 		Items.remove(titleId);
 		console.log 'Delete: ', titleId
-
-	# 'change input[name=title]' : (e) ->
-	# 	Meteor.call 'titleUpdate', @_id, e.currentTarget.value
-	# 	$(e.currentTarget).val('')
-
-	# 'change input[name=title]' : (e) ->
