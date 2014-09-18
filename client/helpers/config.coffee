@@ -9,8 +9,8 @@ Accounts.ui.config
   #     "repo"
   #   ]
 
-  # requestOfflineToken:
-  #   google: true
+  requestOfflineToken:
+    google: true
 
   passwordSignupFields: "USERNAME_AND_EMAIL"
 

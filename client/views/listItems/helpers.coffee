@@ -39,11 +39,6 @@ Template.listItems.events
 			$set:
 				done : not item.done
 
-	'change input[name=titleNew]' : (e) ->
-		newTitle = Items.insert
-			title : e.currentTarget.value
-		$(e.currentTarget).val('')
-
 	'click td[name=title]' : (e) ->
 		txt = $(e.currentTarget).children('#titleText').text()
 		$(e.currentTarget).children('#titleText').addClass('hidden')
@@ -56,6 +51,7 @@ Template.listItems.events
 		Items.update @_id,
 			$set:
 				title : e.currentTarget.value
+				lastEditByUserId : Meteor.userId()
 		if e.which == 13
 			$(e.currentTarget).focusout()
 

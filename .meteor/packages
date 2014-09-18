@@ -3,7 +3,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
 autopublish
 insecure
 iron:router
@@ -13,6 +12,8 @@ less
 raix:handlebar-helpers@0.1.1
 accounts-password
 mizzao:bootstrap-3
-accounts-ui
 natestrauser:font-awesome
+standard-app-packages
+ian:accounts-ui-bootstrap-3
+accounts-google
 
