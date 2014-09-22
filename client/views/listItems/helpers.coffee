@@ -9,7 +9,7 @@ Template.item.helpers
 			return 'warning'
 		else
 			if Items.findOne(@_id).done
-				return 'active'
+				return 'success'
 			else
 				return ''
 
