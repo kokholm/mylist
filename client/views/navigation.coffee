@@ -11,5 +11,6 @@ Template.navigation.events
 		result = Items.insert
 			title : ''
 			userId : Meteor.userId()
+			listId : Session.get("titleId")
 
 		$("[titleId='"+result+"']").children("td[name=title]").click()

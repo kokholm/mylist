@@ -1,3 +1,4 @@
+
 Router.configure
   layoutTemplate: "layout"
   loadingTemplate: "loading"
@@ -5,26 +6,31 @@ Router.configure
   #   Meteor.subscribe "listItems"
 
 Router.map ->
-  @route "listItems",
+  @route "showLists",
     path: "/"
 
   @route "login",
     path: "/login"
 
+  @route "listItems",
+    path: "/items"
   return
 
+mustBeSignedIn = (pause) ->
+  if !Meteor.user() && @ready
+    Router.go "login"
+    pause()
+  return
 
 goToDashboard = (pause) ->
-  if Meteor.user()
-    Router.go "listItems"
+  if Meteor.user() && @ready
+    Router.go "showLists"
     pause()
   return
 
 Router.onBeforeAction "loading"
 
-Router.onBeforeAction (->
-  @redirect "/login"  if not Meteor.user() and @ready()
-),
+Router.onBeforeAction mustBeSignedIn,
   except: ["login"]
 
 Router.onBeforeAction goToDashboard,

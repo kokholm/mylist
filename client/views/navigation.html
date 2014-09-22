@@ -13,7 +13,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         	<a class="navbar-brand" href="{{pathFor 'listItems'}}">{{$.Session.get 'projectName'}}</a>
+         	<a class="navbar-brand" href="{{pathFor 'showLists'}}">{{$.Session.get 'projectName'}}{{#if $.Session.get 'listTitle'}} - {{$.Session.get 'listTitle'}}{{/if}}</a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -31,9 +31,9 @@
  -->
           <ul class="nav navbar-nav navbar-right">{{> loginButtons}}</ul>
       <ul class="nav navbar-nav navbar-right">
-            {{#if currentUser}}
+            {{#if currentUser}}{{#if $.Session.get 'listTitle'}}
             <li><a id="buttonAddListItem" href="#">Add</a></li>
-            {{/if}}
+            {{/if}}{{/if}}
             <!-- <li><a href="../navbar-static-top/">Static top</a></li> -->
             <!-- <li class="active"><a href="./">Fixed top</a></li> -->
 

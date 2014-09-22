@@ -1,0 +1,26 @@
+
+<template name="showLists">
+	<table class="table table-hover table-condensed">
+		<tbody>
+    {{#each lists}}
+      {{> list}}
+    {{/each}}
+		<tr>
+			<td><input type="text" class="form-control" id="listNew"></td>
+			<td width="40px"><button class="btn btn-success" id="addList">Add</button></td>
+		</tr>
+    </tbody>
+   </table>
+
+</template>
+
+<template name="list">
+	<tr style="cursor:pointer" titleId="{{_id}}" listTitle="{{title}}">
+		<td name="title">
+			<span id="titleText" style="font-size:1.5em">{{title}}</span>
+		</td>
+		<td width="40px" name="deleteList" align="center">
+			<i class="fa fa-trash"></i>
+		</td>
+	</tr>
+</template>

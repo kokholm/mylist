@@ -1,6 +1,6 @@
 Template.listItems.helpers 
 	listItem : ->
-		Items.find()
+		Items.find({listId: Session.get("titleId")})
 
 
 Template.item.helpers 
