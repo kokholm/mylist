@@ -13,25 +13,18 @@ Router.map ->
     path: "/login"
 
   @route "listItems",
-    path: "/items"
-  return
+    path: "/list/:_id"
+    # waitOn : ->
+    # 	Meteor.subscribe 'items', @params._id
+    data : ->
+    	listItem : Items.find listId: @params._id
+
 
 mustBeSignedIn = (pause) ->
-  if !Meteor.user() && @ready
-    Router.go "login"
+  if not Meteor.user()
+    @render "login"
     pause()
-  return
-
-goToDashboard = (pause) ->
-  if Meteor.user() && @ready
-    Router.go "showLists"
-    pause()
-  return
 
 Router.onBeforeAction "loading"
 
-Router.onBeforeAction mustBeSignedIn,
-  except: ["login"]
-
-Router.onBeforeAction goToDashboard,
-  only: ["login"]
+Router.onBeforeAction mustBeSignedIn

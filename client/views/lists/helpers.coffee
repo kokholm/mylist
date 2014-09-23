@@ -18,11 +18,12 @@ Template.showLists.events
 
 	'click [name="title"]' : (e) ->
 		listTitle  = $(e.currentTarget).parent('tr').attr('listTitle')
-		listId = $(e.currentTarget).parent('tr').attr('titleId')
+		href = $(e.currentTarget).attr('href')
 		Session.set("listTitle", listTitle)
-		Session.set("titleId", listId)
-		console.log listTitle
-		Router.go "listItems"
+		# Session.set("titleId", listId)
+		# console.log listTitle
+		# Router.go "listItems"
+		location.href = href
 
 	'click [name="deleteList"]' : (e) ->
 		listTitle  = $(e.currentTarget).parent('tr').attr('listTitle')

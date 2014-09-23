@@ -1,6 +1,9 @@
+Template.listItems.rendered = ->
+	$(".item:odd").addClass("odd")
+
 Template.listItems.helpers 
-	listItem : ->
-		Items.find({listId: Session.get("titleId")})
+	# listItem : ->
+	# 	Items.find({listId: Session.get("titleId")})
 
 
 Template.item.helpers 

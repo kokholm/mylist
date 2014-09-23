@@ -18,6 +18,7 @@
 
 </template>
 
+<!-- 
 <template name="item">
 	<tr class="{{itemClass}}" titleId="{{_id}}">
 		<td width=1><i class="fa {{doneClass}} fa-fw fa-2x" name="done"></i></td>
@@ -29,4 +30,18 @@
 			<i class="{{beingUpdatedIcon}}"></i>
 		</td>
 	</tr>
+</template>
+ -->
+
+<template name="item">
+
+	<div class="item {{itemClass}}" data-id="{{_id}}" titleId="{{_id}}">
+		<i class="fa {{doneClass}} fa-fw fa-2x" name="done"></i>
+			<span name="titleText" style="font-size:1.5em">{{title}}</span>
+			<span id="titleInput"><input type="text" class="form-control hidden" name="title"   style="font-size:1.5em" value=""></span>
+		<span class="itemStatus" name="{{beingUpdatedName}}" style="cursor:pointer" align="center">
+			<i class="{{beingUpdatedIcon}}"></i>
+		</span>
+	</div>
+
 </template>
